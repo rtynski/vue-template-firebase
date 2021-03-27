@@ -1,22 +1,46 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Home from '../views/Home.vue';
+import StartPage from '@/modules/startPage/StartPage.vue';
 
 Vue.use(VueRouter);
+const urls = {
+  authSignIn: '/auth/sign-in',
+  authSignUp: '/auth/sign-up',
+  startPage: '/',
+};
+
+const locationsName = {
+  authSignIn: 'AuthSignIn',
+  authSignUp: 'AuthSignUp',
+  startPage: 'StartPage',
+};
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home,
+    path: urls.startPage,
+    name: locationsName.startPage,
+    component: StartPage,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    path: urls.authSignIn,
+    name: locationsName.authSignIn,
+    component: () => import(/* webpackChunkName: "authSignIn" */ '@/modules/account/SignIn.vue'),
+    meta: {
+      h100: true,
+      gray400: true,
+    },
+  },
+  {
+    path: urls.authSignUp,
+    name: locationsName.authSignUp,
+    component: () => import(/* webpackChunkName: "authSignUp" */ '@/modules/account/SignUp.vue'),
+    meta: {
+      h100: true,
+      gray400: true,
+    },
   },
 ];
 
@@ -26,4 +50,4 @@ const router = new VueRouter({
   routes,
 });
 
-export default router;
+export { router, locationsName, urls };
