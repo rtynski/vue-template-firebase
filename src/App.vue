@@ -17,6 +17,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import AccountStore from './modules/account/store/AccountStore';
 import { FirebaseUser } from './modules/account/models';
 import LoginAndRegister from '@/modules/account/LoginAndRegister.vue';
+import { loadLanguageAsync } from './i18n-setup';
 
 Vue.use(LayoutPlugin);
 
@@ -50,10 +51,15 @@ export default class App extends Vue {
     };
   }
 
-  public created(): void {
+  public async created(): Promise<void> {
     if (this.user.isAnonymous && !this.isFirstRun) {
       this.accountStore.actionCheckLogin();
       this.isFirstRun = true;
+    }
+    const [firstLang] = window.navigator.languages;
+    if (firstLang === 'pl') {
+      console.log(firstLang);
+      await loadLanguageAsync(firstLang);
     }
     console.log('Start new App');
   }

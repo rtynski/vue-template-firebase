@@ -1,24 +1,31 @@
 <template>
   <b-row class="h-100 justify-content-center align-items-center">
     <form class="col-md-6 col-offset-md-3 white py-3 mx-3 max-width">
-      <span class="text-center d-block h2">Create new account</span>
-      <label for="email">Email:</label>
-      <b-form-input name="email" id="name" placeholder="Enter email" autocomplete="none" />
-      <label for="password">Password:</label>
-      <b-form-input name="password" id="password" placeholder="Enter password" type="password" autocomplete="none" />
-      <label for="confirm-password">Confirm password:</label>
+      <span class="text-center d-block h2">{{ $t('account.createNewAccount') }}</span>
+      <label for="email">{{ $t('account.email') }}:</label>
+      <b-form-input name="email" id="name" :placeholder="$t('account.enterEmail')" autocomplete="none" />
+      <label for="password">{{ $t('account.password') }}:</label>
+      <b-form-input
+        name="password"
+        id="password"
+        :placeholder="$t('account.enterPassword')"
+        type="password"
+        autocomplete="none"
+      />
+      <label for="confirm-password">{{ $t('account.confirmPassword') }}:</label>
       <b-form-input
         name="confirm-password"
         id="confirm-password"
-        placeholder="Enter confirm password"
+        :placeholder="$t('account.enterConfirmPassword')"
         type="password"
         autocomplete="none"
       />
       <div class="p-2 text-center">
-        <b-button variant="primary" class="px-3" @click.prevent="register">Register</b-button>
+        <b-button variant="primary" class="px-3" @click.prevent="register">{{ $t('account.register') }}</b-button>
       </div>
       <div class="p-2 text-center">
-        <span> If you have an account.</span><a :href="urls.authSignIn" @click.prevent="navigationSignIn"> Sign In </a>
+        <span> {{ $t('account.ifYouHaveAccount') }}.</span
+        ><a :href="urls.authSignIn" @click.prevent="navigationSignIn"> {{ $t('account.signIn') }} </a>
       </div>
     </form>
   </b-row>

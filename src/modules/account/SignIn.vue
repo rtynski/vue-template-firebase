@@ -1,22 +1,23 @@
 <template>
   <b-row class="h-100 justify-content-center align-items-center">
     <form class="col-md-6 col-offset-md-3 white py-3 mx-3 max-width">
-      <span class="text-center d-block h2"> Welcome </span>
-      <label for="email">Email:</label>
-      <b-form-input name="email" id="name" placeholder="Enter email" autocomplete="email" />
-      <label for="password">Password:</label>
+      <span class="text-center d-block h2"> {{ $t('account.welcome') }} </span>
+      <label for="email">{{ $t('account.welcome') }}:</label>
+      <b-form-input name="email" id="name" :placeholder="$t('account.enterEmail')" autocomplete="email" />
+      <label for="password">{{ $t('account.password') }}:</label>
       <b-form-input
         name="password"
         id="password"
-        placeholder="Enter password"
+        :placeholder="$t('account.enterPassword')"
         type="password"
         autocomplete="current-password"
       />
       <div class="p-2 text-center">
-        <b-button variant="primary" class="px-3" @click.prevent="login">Login</b-button>
+        <b-button variant="primary" class="px-3" @click.prevent="login">{{ $t('account.login') }}</b-button>
       </div>
       <div class="p-2 text-center">
-        <span> Don’t have an account? </span><a :href="urls.authSignUp" @click.prevent="navigationSignUp"> Sign Up </a>
+        <span> {{ $t('account.donTHaveAccount') }} </span>
+        <a :href="urls.authSignUp" @click.prevent="navigationSignUp"> {{ $t('account.signUp') }} </a>
       </div>
     </form>
   </b-row>

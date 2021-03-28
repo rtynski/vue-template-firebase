@@ -4,6 +4,8 @@ import VueRouter from 'vue-router';
 import Vuex from 'vuex';
 import BootstrapVue from 'bootstrap-vue';
 import AccountStore from '../store/AccountStore';
+import VueI18n from 'vue-i18n';
+import { i18n } from '@/i18n-setup';
 
 const router = new VueRouter();
 router.addRoute({ name: 'AuthSignUp', path: '/1' });
@@ -25,6 +27,7 @@ export default (
   localVue.use(BootstrapVue);
   localVue.use(Vuex);
   localVue.use(VueRouter);
+  localVue.use(VueI18n);
 
   const store = new Vuex.Store({
     modules: {
@@ -37,6 +40,7 @@ export default (
     attrs,
     store,
     router,
+    i18n: i18n(),
     localVue,
   });
 };

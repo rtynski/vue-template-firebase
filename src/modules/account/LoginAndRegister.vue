@@ -2,7 +2,7 @@
   <b-container class="h-100">
     <b-row class="h-100 justify-content-center align-items-center">
       <b-col cols="12" class="text-center">
-        <h1>Waiting for login message</h1>
+        <h1>{{ $t('account.waiting') }}</h1>
         <br />
         <b-spinner variant="primary" />
       </b-col>
