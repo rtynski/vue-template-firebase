@@ -14,9 +14,9 @@
 import { LayoutPlugin } from 'bootstrap-vue';
 import { getModule } from 'vuex-module-decorators';
 import { Component, Vue } from 'vue-property-decorator';
-import LoginAndRegister from '@/components/LoginAndRegister.vue'; // @ is an alias to /src
 import AccountStore from './modules/account/store/AccountStore';
 import { FirebaseUser } from './modules/account/models';
+import LoginAndRegister from '@/modules/account/LoginAndRegister.vue';
 
 Vue.use(LayoutPlugin);
 

@@ -4,7 +4,7 @@ import BootstrapVue from 'bootstrap-vue';
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 
-import LoginAndRegister from '@/components/LoginAndRegister.vue';
+import LoginAndRegister from '../LoginAndRegister.vue';
 
 describe('LoginAndRegister.vue', () => {
   it('renders props.msg when passed', () => {
